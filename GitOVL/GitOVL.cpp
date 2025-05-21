@@ -2,10 +2,53 @@
 //
 
 #include <iostream>
+#include <chrono>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::string sPassword = "Haus";
+    std::string sUserInput = "";
+    int iCount = 0;
+    int iMaxAttempts = 3;
+
+    std::cout << "Hilfszeile: Passwort lautet: '" << sPassword << "'\n\n  ";
+    //std::cout << "enter password: ";
+    //std::cin >> sUserinput;
+
+    do {
+        std::cout << "Enter password: ";
+        std::cin >> sUserInput;
+
+        if (sPassword == sUserInput)
+        {
+            break;
+        }
+        else if (iCount < iMaxAttempts)
+        {
+            int help = iMaxAttempts - iCount;
+            std::cout << "\n Du hast noch  " << help << " Versuch(e)..\n";
+        }
+
+        else {
+            std::cout << "Eingabe gesperrt. Warte 5 Sekunden..\n";
+            for (int i = 0; i < 5; i++)
+            {
+                std::cout << 5 - i << "\n";
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+            }
+
+            iCount = -1;
+        }
+
+
+        iCount++;
+
+    } while (sPassword != sUserInput);
+
+    std::cout << "Welcome!";
+
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
