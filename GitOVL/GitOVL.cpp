@@ -2,10 +2,23 @@
 //
 
 #include <iostream>
+using namespace std;
+class Cgitlearning{
+    public:
+
+    void letsLearnGit()
+   std::cout <<"Git learning Chapt1" << endl;
+    cin
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
+    std::cout << "Welcome to our code" << endl;
+
+
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
